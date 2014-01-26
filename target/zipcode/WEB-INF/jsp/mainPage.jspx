@@ -1,0 +1,78 @@
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:spring="http://www.springframework.org/tags">
+<spring:url value='/static/js/jquery-1.8.2.min.js' var="jquery_main"></spring:url>
+<script src="${jquery_main}" type="text/javascript">
+<!--FF3 and Opera-->
+    
+</script>
+<jsp:output doctype-root-element="html"
+	doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+	doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+<jsp:directive.page contentType="text/html;charset=UTF-8" />
+<jsp:directive.page pageEncoding="UTF-8" />
+<jsp:output omit-xml-declaration="yes" />
+<spring:url value='/static/js/validate.js' var="validate"></spring:url>
+<script src="${validate}" type="text/javascript">
+<!--FF3 and Opera-->
+    
+</script>
+
+<div id = "mainDiv">
+<form:form modelAttribute="country" action="weatherdetails"
+	id="countryForm">
+
+	<div id = "clientSideErrorMsg" style="display:none;"><!--  --></div>
+	<spring:hasBindErrors name="country">
+		<spring:bind path="*">
+			<div style="color: #ff0000;" id="errorMessage">
+				<c:forEach items="${status.errorMessages}" var="error">
+					<ul>
+						<li><c:out value="${error}" escapeXml="false" /></li>
+					</ul>
+				</c:forEach>
+			</div>
+		</spring:bind>
+	</spring:hasBindErrors>
+	
+	 		Zipcode : <form:input type="text" value="${country.zipCode}"
+		path="zipCode" id="zipcode" />
+
+	<input type="button" id="submitForm" value="Submit" />
+</form:form>
+
+<div id="weatherDetails" style="display:none;">
+	<table border="1">
+		<thead>
+			<tr>
+				<th>City Name</th>
+				<th>State Name</th>
+				<th>Temperature</th>
+			</tr>
+		</thead>
+		<tbody id = "tableBody">
+			<c:choose>
+				<c:when test="${weatherDetails != null and weatherDetails['error'] == null}">
+					<tr>
+						<td id="cityName">${weatherDetails['cityName']}</td>
+						<td id="stateName">${weatherDetails['stateName']}</td>
+						<td id="temperature">${weatherDetails['temperature']}</td>
+
+					</tr>
+				</c:when>
+
+				<c:when test="${weatherDetails != null and weatherDetails['error'] != null}" >
+					<tr>
+						<td colspan="3">${weatherDetails['error']}</td>
+					</tr>
+				</c:when>
+			</c:choose>
+		</tbody>
+	</table>
+</div>
+</div>
+</html>
