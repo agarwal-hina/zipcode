@@ -5,29 +5,27 @@
 	xmlns:form="http://www.springframework.org/tags/form"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:spring="http://www.springframework.org/tags">
-<spring:url value='/static/js/jquery-1.8.2.min.js' var="jquery_main"></spring:url>
-<script src="${jquery_main}" type="text/javascript">
-<!--FF3 and Opera-->
-    
-</script>
 <jsp:output doctype-root-element="html"
 	doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
 	doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
 <jsp:directive.page contentType="text/html;charset=UTF-8" />
 <jsp:directive.page pageEncoding="UTF-8" />
 <jsp:output omit-xml-declaration="yes" />
+<head>
+<spring:url value='/static/js/jquery-1.8.2.min.js' var="jquery_main"></spring:url>
+<script src="${jquery_main}" type="text/javascript"><!--FF3 and Opera--></script>
 <spring:url value='/static/js/validate.js' var="validate"></spring:url>
-<script src="${validate}" type="text/javascript">
-<!--FF3 and Opera-->
-    
-</script>
+<script src="${validate}" type="text/javascript"><!--FF3 and Opera--></script>
+</head>
 
-<div id="mainDiv">
+
+<body bgcolor="#E6E6FA">
+<div id="mainDiv" >
 	<form:form modelAttribute="country" action="weatherdetails"
 		id="countryForm">
 
 		<div id="clientSideErrorMsg" style="display: none;">
-			<!--  -->
+			<!--FF3 and Opera-->
 		</div>
 		<spring:hasBindErrors name="country">
 			<spring:bind path="*">
@@ -40,15 +38,16 @@
 				</div>
 			</spring:bind>
 		</spring:hasBindErrors>
-	
+		<div style="padding-top: 20px; padding-left:20px;">
 	 		Zipcode : <form:input type="text" value="${country.zipCode}"
 			path="zipCode" id="zipcode" />
 
 		<input type="button" id="submitForm" value="Submit" />
+		</div>
 	</form:form>
 
-	<div id="weatherDetails" style="display: none;">
-		<table border="1">
+	<div id="weatherDetails" style="display: none;padding-top: 66px; padding-left:20px;">
+		<table border="1" >
 			<thead>
 				<tr>
 					<th>City Name</th>
@@ -72,4 +71,5 @@
 		</table>
 	</div>
 </div>
+</body>
 </html>
