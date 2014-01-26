@@ -3,6 +3,6 @@
 
 <tiles-definitions>
 
-<definition name="mainPage" template="/WEB-INF/jsp/mainPage.jspx"></definition>
+<definition name="zipcodePage" template="/WEB-INF/jsp/mainPage.jspx"></definition>
 
 </tiles-definitions>

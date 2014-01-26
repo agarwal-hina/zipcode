@@ -27,30 +27,39 @@ public class MainController {
     @Autowired
     private IZIPCodeService zipCodeService;
 
+    /** The Constant VIEW_NAME. */
+    private static final String VIEW_NAME = "zipcodePage";
+
+    /** The Constant MODEL_FORM_NAME. */
+    private static final String MODEL_FORM_NAME = "country";
+
     /**
      * This method returns view page to enter the zip code
-     *
-     * @param countryForm the country form
+     * 
+     * @param countryForm
+     *            the country form
      * @return the main page
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/mainPageIndex")
-    public ModelAndView getMainPage(@ModelAttribute("country") CountryForm countryForm) {
-        ModelAndView modelAndView = new ModelAndView("mainPage");
-        modelAndView.addObject("country", countryForm);
+    @RequestMapping(method = RequestMethod.GET, value = "/mainpage")
+    public ModelAndView getMainPage(@ModelAttribute(MODEL_FORM_NAME) CountryForm countryForm) {
+        ModelAndView modelAndView = new ModelAndView(VIEW_NAME);
+        modelAndView.addObject(MODEL_FORM_NAME, countryForm);
         return modelAndView;
     }
 
     /**
      * This API is to retrieve the response from the UI
-     *
-     * @param countryForm the country form
-     * @param bindingResult the binding result
+     * 
+     * @param countryForm
+     *            the country form
+     * @param bindingResult
+     *            the binding result
      * @return the model and view
      */
     @RequestMapping(method = RequestMethod.POST, value = "/weatherdetails")
-    public ModelAndView retrieveResponse(@Validated @ModelAttribute("country") CountryForm countryForm,
+    public ModelAndView retrieveResponse(@Validated @ModelAttribute(MODEL_FORM_NAME) CountryForm countryForm,
         final BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView("mainPage");
+        ModelAndView modelAndView = new ModelAndView(VIEW_NAME);
         this.countryValidator.validate(countryForm, bindingResult);
         if (!bindingResult.hasErrors()) {
             Map<String, String> weatherDetails = this.zipCodeService.getWeatherDetails(countryForm.getZipCode());

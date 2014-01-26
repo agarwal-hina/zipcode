@@ -6,6 +6,9 @@
 
 	<description>Weather Application</description>
 
+	<welcome-file-list>
+        <welcome-file>mainpage</welcome-file>
+    </welcome-file-list>
 	
 	<!-- Handles Spring requests -->
 	<servlet>
@@ -44,8 +47,4 @@
 		<session-timeout>30</session-timeout>
 	</session-config>
 
-	
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
 </web-app>

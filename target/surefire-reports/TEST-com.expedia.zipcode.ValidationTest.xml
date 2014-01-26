@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.925" errors="0" skipped="0" tests="1" name="com.expedia.zipcode.ValidationTest">
+<testsuite failures="0" time="1.002" errors="0" skipped="0" tests="1" name="com.expedia.zipcode.ValidationTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.6.0_26\jre\bin"/>
@@ -19,7 +19,7 @@
     <property name="basedir" value="D:\MyPlace local\zipcode"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.6.0_26\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="surefire.real.class.path" value="D:\MyPlace local\zipcode\target\surefire\surefirebooter2356110196143668781.jar"/>
+    <property name="surefire.real.class.path" value="D:\MyPlace local\zipcode\target\surefire\surefirebooter5534569406961472904.jar"/>
     <property name="java.io.tmpdir" value="C:\Users\HINA16~1.NAG\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -43,7 +43,7 @@
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.6.0_26\jre"/>
-    <property name="sun.java.command" value="D:\MyPlace local\zipcode\target\surefire\surefirebooter2356110196143668781.jar D:\MyPlace local\zipcode\target\surefire\surefire723282019101600838tmp D:\MyPlace local\zipcode\target\surefire\surefire516241650822396811tmp"/>
+    <property name="sun.java.command" value="D:\MyPlace local\zipcode\target\surefire\surefirebooter5534569406961472904.jar D:\MyPlace local\zipcode\target\surefire\surefire2914765889104629510tmp D:\MyPlace local\zipcode\target\surefire\surefire4922347403553893131tmp"/>
     <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -60,5 +60,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.741" classname="com.expedia.zipcode.ValidationTest" name="validateZIPCodeFormat"/>
+  <testcase time="0.813" classname="com.expedia.zipcode.ValidationTest" name="validateZIPCodeFormat"/>
 </testsuite>
