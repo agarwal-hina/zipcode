@@ -1,5 +1,5 @@
 /** Global variable to calculate data on client side or server side */
-var isServerSide = true;
+var isServerSide = false;
 
 $(document).ready(function() {
     bindClickEvent();
@@ -23,7 +23,8 @@ function bindClickEvent() {
  * on top otherwise it will show the table with details.
  */
 function serverSide() {
-    var url = $("#countryForm").attr('action');
+    var url ="weatherdetails";
+    $("#loadingImageDivId").css('display','block');
     $.ajax({
         type : "POST",
         url : url,
@@ -35,7 +36,7 @@ function serverSide() {
             if (error == undefined) {
                 $("#weatherDetails").css('display', 'block');
             }
-            
+            $("#loadingImageDivId").css('display','none');
         },
         dataType : "html"
     });
@@ -46,6 +47,7 @@ function serverSide() {
  * on top otherwise it will show the table with details retrieve data from jsonp.
  */
 function cliendSide() {
+    $("#loadingImageDivId").css('display','block');
     var zipCode = $("#zipcode").val();
     if (validateZIPCode(zipCode)) {
         var url = "http://api.wunderground.com/api/ed044d75b91fb500/conditions/q/" + zipCode + ".json";
@@ -65,15 +67,19 @@ function cliendSide() {
                     $("#tableBody").html(tBodyStr);
                     
                 } else {                   
+                    $("#weatherDetails").css('display', 'none');
                     $("#clientSideErrorMsg").html("<ul><li>zip code not found</li></ul>");
                     $("#clientSideErrorMsg").css('display', 'block');
                 }
             },
             complete : function() {
+                $("#loadingImageDivId").css('display','none');
                 bindClickEvent();
             }
         });
     } else {
+        $("#weatherDetails").css('display', 'none');
+        $("#loadingImageDivId").css('display','none');
         $("#clientSideErrorMsg").html("<ul><li>invalid zip code format</li></ul>");
         $("#clientSideErrorMsg").css('display', 'block');
         bindClickEvent();
