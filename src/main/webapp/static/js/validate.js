@@ -1,5 +1,5 @@
 /** Global variable to calculate data on client side or server side */
-var isServerSide = false;
+var isServerSide = true;
 
 $(document).ready(function() {
     bindClickEvent();

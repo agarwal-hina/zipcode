@@ -22,7 +22,7 @@
 <body bgcolor="#E6E6FA">
 <div id="mainDiv" >
 	
-	<form:form modelAttribute="country" id="countryForm">
+	<form:form modelAttribute="country" id="countryForm" action="weatherdetails">
 
 		<div id="clientSideErrorMsg" style="display: none;">
 			<!--FF3 and Opera-->
