@@ -65,7 +65,7 @@ function cliendSide() {
                     $("#tableBody").html(tBodyStr);
                     
                 } else {                   
-                    $("#clientSideErrorMsg").html("<ul><li>invalid zip code format</li></ul>");
+                    $("#clientSideErrorMsg").html("<ul><li>zip code not found</li></ul>");
                     $("#clientSideErrorMsg").css('display', 'block');
                 }
             },
