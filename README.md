@@ -15,3 +15,4 @@ Run Application
     </server>
 2) Tomcat should be up on http://localhost:8080
 3)To start the application use command "mvn clean install tomcat:deploy";
+4) Access application at http://localhost:8080/zipcode/mainpage
