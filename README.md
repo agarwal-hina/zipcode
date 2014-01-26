@@ -13,4 +13,5 @@ Run Application
         <username>tomcat</username>
         <password>tomcat</password>
     </server>
-2)To start the application use command "mvn clean install tomcat:deploy";
+2) Tomcat should be up on http://localhost:8080
+3)To start the application use command "mvn clean install tomcat:deploy";
