@@ -70,9 +70,7 @@ public class CountryValiator implements Validator {
                 flag = Boolean.FALSE;
             }
         } else {
-            if (zipCode.length() != 5 || !StringUtils.isNumeric(zipCode)) {
                 flag = Boolean.FALSE;
-            }
         }
         return flag;
     }
