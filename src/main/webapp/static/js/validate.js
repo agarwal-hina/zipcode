@@ -64,15 +64,14 @@ function cliendSide() {
                     $("#weatherDetails").css('display', 'block');
                     $("#tableBody").html(tBodyStr);
                     
-                } else {
-                    
-                    $("#tableBody").html("<tr><td colspan='3'>zipcode not found</td></tr>");
-                    $("#weatherDetails").css('display', 'block');
+                } else {                   
+                    $("#clientSideErrorMsg").html("<ul><li>zip code not found</li></ul>");
+                    $("#clientSideErrorMsg").css('display', 'block');
                 }
             },
             complete : function() {
                 bindClickEvent();
-            },
+            }
         });
     } else {
         $("#clientSideErrorMsg").html("<ul><li>invalid zip code format</li></ul>");

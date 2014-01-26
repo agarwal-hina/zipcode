@@ -31,4 +31,7 @@ public final class Constants {
     
     /** Error message for invalid zip code. */
     public static String INVALID_ZIP_CODE = "invalid zip code format";
+    
+    /** The zipcode not found. */
+    public static String ZIPCODE_NOT_FOUND = "zipcode not found";
 }

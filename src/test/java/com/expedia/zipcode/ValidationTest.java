@@ -17,7 +17,7 @@ public class ValidationTest {
     private CountryValiator countryValidator;
     
 	@Test
-	public void validateZIPCode() {
+	public void validateZIPCodeFormat() {
 	    boolean isValid = this.countryValidator.validateZIPCode("94117");
 	    Assert.assertTrue("Valid ZIP code", isValid);
 	}

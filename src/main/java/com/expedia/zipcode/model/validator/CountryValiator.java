@@ -4,18 +4,23 @@
 package com.expedia.zipcode.model.validator;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import com.expedia.zipcode.constant.Constants;
 import com.expedia.zipcode.model.form.CountryForm;
+import com.expedia.zipcode.service.IZIPCodeService;
 
 /**
  * The Class CountryValiator contains the method to validate the zip code enterd by user from UI
  */
 @Component
 public class CountryValiator implements Validator {
+    
+    @Autowired
+    private IZIPCodeService zipCodeService;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -46,6 +51,8 @@ public class CountryValiator implements Validator {
     public void validateZIPCode(String zipCode, Errors errors) {
         if (!this.validateZIPCode(zipCode)) {
             errors.rejectValue("zipCode", Constants.INVALID_ZIP_CODE, Constants.INVALID_ZIP_CODE);
+        } else if (!this.zipCodeService.isValidZIPCode(zipCode)) {
+            errors.rejectValue("zipCode", Constants.ZIPCODE_NOT_FOUND, Constants.ZIPCODE_NOT_FOUND);
         }
     }
 

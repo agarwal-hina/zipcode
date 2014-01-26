@@ -22,57 +22,54 @@
     
 </script>
 
-<div id = "mainDiv">
-<form:form modelAttribute="country" action="weatherdetails"
-	id="countryForm">
+<div id="mainDiv">
+	<form:form modelAttribute="country" action="weatherdetails"
+		id="countryForm">
 
-	<div id = "clientSideErrorMsg" style="display:none;"><!--  --></div>
-	<spring:hasBindErrors name="country">
-		<spring:bind path="*">
-			<div style="color: #ff0000;" id="errorMessage">
-				<c:forEach items="${status.errorMessages}" var="error">
-					<ul>
-						<li><c:out value="${error}" escapeXml="false" /></li>
-					</ul>
-				</c:forEach>
-			</div>
-		</spring:bind>
-	</spring:hasBindErrors>
+		<div id="clientSideErrorMsg" style="display: none;">
+			<!--  -->
+		</div>
+		<spring:hasBindErrors name="country">
+			<spring:bind path="*">
+				<div style="color: #ff0000;" id="errorMessage">
+					<c:forEach items="${status.errorMessages}" var="error">
+						<ul>
+							<li><c:out value="${error}" escapeXml="false" /></li>
+						</ul>
+					</c:forEach>
+				</div>
+			</spring:bind>
+		</spring:hasBindErrors>
 	
 	 		Zipcode : <form:input type="text" value="${country.zipCode}"
-		path="zipCode" id="zipcode" />
+			path="zipCode" id="zipcode" />
 
-	<input type="button" id="submitForm" value="Submit" />
-</form:form>
+		<input type="button" id="submitForm" value="Submit" />
+	</form:form>
 
-<div id="weatherDetails" style="display:none;">
-	<table border="1">
-		<thead>
-			<tr>
-				<th>City Name</th>
-				<th>State Name</th>
-				<th>Temperature</th>
-			</tr>
-		</thead>
-		<tbody id = "tableBody">
-			<c:choose>
-				<c:when test="${weatherDetails != null and weatherDetails['error'] == null}">
+	<div id="weatherDetails" style="display: none;">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>City Name</th>
+					<th>State Name</th>
+					<th>Temperature</th>
+				</tr>
+			</thead>
+			<tbody id="tableBody">
+
+				<c:if
+					test="${weatherDetails != null}">
 					<tr>
 						<td id="cityName">${weatherDetails['cityName']}</td>
 						<td id="stateName">${weatherDetails['stateName']}</td>
 						<td id="temperature">${weatherDetails['temperature']}</td>
 
 					</tr>
-				</c:when>
+				</c:if>
 
-				<c:when test="${weatherDetails != null and weatherDetails['error'] != null}" >
-					<tr>
-						<td colspan="3">${weatherDetails['error']}</td>
-					</tr>
-				</c:when>
-			</c:choose>
-		</tbody>
-	</table>
-</div>
+			</tbody>
+		</table>
+	</div>
 </div>
 </html>
